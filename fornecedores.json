@@ -1,0 +1,782 @@
+[
+  {
+    "fornecedor": "AGUA DE COCO PUBLIC",
+    "procedimento": "NÃO TEM TROCA "
+  },
+  {
+    "fornecedor": "AJINOMOTO",
+    "procedimento": "RELAÇÃO PARA VENDEDOR"
+  },
+  {
+    "fornecedor": "ALTAPLAST",
+    "procedimento": "TROCA NO ATO DA ENTREGA (PESAR TODAS AS SACOLAS E DIVIDIR POR 4, ARREDONDAR PARA O NUMERO MAIS PROXIMO.CODIGO:99900)"
+  },
+  {
+    "fornecedor": "ANHEMBI (Limpeza)",
+    "procedimento": "ATO DA ENTREGA (PEDIR AUTORIZAÇÃO COM FOTO PARA O VENDEDOR) - Sergio Email: sergio.ventura@anhembi.ind.br - Tel: 99651-0634"
+  },
+  {
+    "fornecedor": "ANHEMBI (Mercearia)",
+    "procedimento": "ATO DA ENTREGA (PEDIR AUTORIZAÇÃO COM FOTO PARA O VENDEDOR)"
+  },
+  {
+    "fornecedor": "APOGEE COMERCIAL",
+    "procedimento": "COMPRAMOS DO ATACADO, DESCARTAR"
+  },
+  {
+    "fornecedor": "ATB",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "AURORA (BAZAR)",
+    "procedimento": "ELAS POR ELAS"
+  },
+  {
+    "fornecedor": "AUTO BRILHO",
+    "procedimento": "TROCA NO ATO DA ENTREGA, QUANDO BONIFICA COMPRADOR INFORMAR PARA DESCARTAR"
+  },
+  {
+    "fornecedor": "AVA BAZAR",
+    "procedimento": "TROCA NO ATO DA ENTREGA, QUANDO BONIFICA COMPRADOR INFORMAR PARA DESCARTAR"
+  },
+  {
+    "fornecedor": "B4U",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "BETTANIN ",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "BLACK DECK ",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "BOMBRIL",
+    "procedimento": "ENVIAR RELAÇÃO AO VENDEDOR Manoel - Email: manoel.santos@bombril.com.br - Tel: 97638-1517"
+  },
+  {
+    "fornecedor": "CABLOCO",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "CADENCE",
+    "procedimento": "ENVIA RELAÇÃO DO QUE EXISTE NO FISICO PARA OS EMAILS: (Cad-posvendas.sp@newellco.com / nettovenancio@hotmail.com) TEL: 16 98839-8008  DAYANE"
+  },
+  {
+    "fornecedor": "CAMIL MABEL",
+    "procedimento": "MANDAR PARA LOJA 05"
+  },
+  {
+    "fornecedor": "CÃO BRASIL (ARROZ)",
+    "procedimento": "MANDAR PARA LOJA 05"
+  },
+  {
+    "fornecedor": "CARAVELAS AÇUCAR",
+    "procedimento": "DESCARTE (PRIORIZAR PARA USO INTERNO)"
+  },
+  {
+    "fornecedor": "CARGILL",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "CASA DORO (PAES)",
+    "procedimento": "LANÇAR E DESCARTAR"
+  },
+  {
+    "fornecedor": "CEPERA",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "CHA PUBLIC",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "CHEF CHIPS",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "CHINELOS IPANEMA",
+    "procedimento": "VENDEDOR PASSA E RETIRA, FAZER A NOTA DO QUE ESTÁ NO SISTEMA. Cardoso (cardoso@semeardna.com.br) Tel: 11 97204-4193"
+  },
+  {
+    "fornecedor": "COPOBRAS",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "DACOLONIA ALIM (DACOLONIA ALIMENTOS)",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "DANONE",
+    "procedimento": "LANÇAR E DESCARTAR"
+  },
+  {
+    "fornecedor": "DAROZ",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "DI SOLLE",
+    "procedimento": "ALTERAÇÃO NO CONTRATO DESCARTE"
+  },
+  {
+    "fornecedor": "DISLAR",
+    "procedimento": "FORNECEDOR PAGA EM BONIFICAÇÃO - DESCARTE OU USO INTERNO"
+  },
+  {
+    "fornecedor": "DISPLOKI (BAZAR)",
+    "procedimento": "TROCA NO ATO DA ENTREGA , MAS PRECISA TER O PRODUTO, ALGUMAS VEZES NEGOCIAMOS EM VERBA, COMPRADOR AVISA"
+  },
+  {
+    "fornecedor": "DISPLOKI (COLGATE)",
+    "procedimento": "VENDEDOR PASSA E RETIRA Washington 97366-7660"
+  },
+  {
+    "fornecedor": "DREYFUS",
+    "procedimento": "RECEBE NO CD , TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "DUCOCO",
+    "procedimento": "NÃO TEM TROCA "
+  },
+  {
+    "fornecedor": "DURACEL",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "EBEG BAZAR (FACILITA)",
+    "procedimento": "FORNECEDOR PAGA EM BONIFICAÇÃO - DESCARTE OU USO INTERNO"
+  },
+  {
+    "fornecedor": "ELETROMEGA",
+    "procedimento": "PAGA EM BONIFICAÇÃO"
+  },
+  {
+    "fornecedor": "ELGIN",
+    "procedimento": "ALTERAÇÃO NO CONTRATO DESCARTE"
+  },
+  {
+    "fornecedor": "EMBALIXO",
+    "procedimento": "ALTERAÇÃO NO CONTRATO DESCARTE"
+  },
+  {
+    "fornecedor": "ENOVA ",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "ETILUX",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "E-UB",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "FABER CASTELL S",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "FARINHA OCA",
+    "procedimento": "MANDAR PARA LOJA 05"
+  },
+  {
+    "fornecedor": "FARINHA TRIGO PUBLIC",
+    "procedimento": "MANDAR PARA LOJA 05"
+  },
+  {
+    "fornecedor": "FEIJÃO TIO JOTA",
+    "procedimento": "PRIORIZAR O USO INTERNO, TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "FILTRO DE PAPEL PUBLIC",
+    "procedimento": "TROCA FEITA PELA 05"
+  },
+  {
+    "fornecedor": "FLEISCHMANN",
+    "procedimento": "ENVIAR RELAÇÃO VENDEDOR"
+  },
+  {
+    "fornecedor": "FLORA",
+    "procedimento": "DESCARTE (PRIORIZAR COMO USO INTERNO)"
+  },
+  {
+    "fornecedor": "FORNECEDOR JBS SWIFT",
+    "procedimento": "NÃO TEM TROCA (DESCARTE)"
+  },
+  {
+    "fornecedor": "FORT JARDIM",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "FORT SOLUTIONS",
+    "procedimento": "NÃO TRABALHAMOS MAIS COM A EMPRESA DESCARTE"
+  },
+  {
+    "fornecedor": "GABOARD",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "GIMENEZ",
+    "procedimento": "ATO DA ENTREGA (EXCETO AMENDOIM, PODE DESCARTAR)"
+  },
+  {
+    "fornecedor": "GM TOALHAS",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "GRAN ROMANO",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "GULOSINA IND",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "HYDRA (DUCHA)",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "IMBRAMIL",
+    "procedimento": "TROCA NO ATO DA ENTREGA,RECEBE PELO CD"
+  },
+  {
+    "fornecedor": "INVICTA",
+    "procedimento": "ALTERAÇÃO NO CONTRATO DESCARTE"
+  },
+  {
+    "fornecedor": "IPANEMA (QUEIJOS)",
+    "procedimento": "O QUE TIVER NO FISICO, TROCA NO ATO"
+  },
+  {
+    "fornecedor": "ITAMARATY",
+    "procedimento": "BRUNO ESTA NEGOCIANDO"
+  },
+  {
+    "fornecedor": "JADEPRO",
+    "procedimento": "ATO DA ENTREGA / ENVIAR RELAÇÃO AO VENDEDOR RINALDO (rinaldorpc@gmail.com)"
+  },
+  {
+    "fornecedor": "JC PANOS",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "JOLLY",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "KEEPREND",
+    "procedimento": "RECEBE NO CD, QUANDO BONIFICA COMPRADOR INFORMAR PARA DESCARTAR"
+  },
+  {
+    "fornecedor": "KELLONGS",
+    "procedimento": "VENDEDOR RETIRA Washington 97366-7660"
+  },
+  {
+    "fornecedor": "KEROCOPO",
+    "procedimento": "TROCA NO ATO DA ENTREGA , RECEBE NO CD"
+  },
+  {
+    "fornecedor": "KOZZY",
+    "procedimento": "PASSAR RELAÇÃO A VENDEDORA Paula (paularca@outlook.com)"
+  },
+  {
+    "fornecedor": "LA CAMPAGNOLA",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "LAFRA",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "LEITE COM PUBLIC",
+    "procedimento": "NÃO TEM TROCA , CHECAR A POSSIBILIDADE DE USO INTERNO"
+  },
+  {
+    "fornecedor": "LIDER",
+    "procedimento": "LANÇAR E DESCARTAR"
+  },
+  {
+    "fornecedor": "LINDA LISS",
+    "procedimento": "PASSAR RELAÇÃO AO VENDEDOR, TROCA POR PRODUTO - Antônio (santnellirepresentacao@gmail.com) Tel: 11 97805-9939"
+  },
+  {
+    "fornecedor": "LORENZETTI",
+    "procedimento": "ACIMA DE 5 UNIDADES , ENVIA PARA O VENDEDOR Lucas - 11 98172-0338 EMAIL : (67319@lorenzetti.com.br)"
+  },
+  {
+    "fornecedor": "LOWÇUCAR",
+    "procedimento": "ACORDO COMERCIAL (AGUARDAR O COMERCIAL AUTORIZAR O DESCARTE)"
+  },
+  {
+    "fornecedor": "LUMIPAM",
+    "procedimento": "DESCARTE (CHECAR A POSSIBLIDADE DE USO INTERNO"
+  },
+  {
+    "fornecedor": "LUVAS LALAN",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "MACARRÃO PUBLIC (ARAPONGAS)",
+    "procedimento": "MANDAR PARA LOJA 05"
+  },
+  {
+    "fornecedor": "MANDUBIM",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "MARATA (SUCO)",
+    "procedimento": "MANDAR PARA LOJA 05 (AGUARDAR O COMPRADOR AUTORIZAR O ENVIO)"
+  },
+  {
+    "fornecedor": "MARIZA INDUSTRIA",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "Melhoramentos/Softys",
+    "procedimento": "Enviar o relatório com os itens que temos no físico em uma planilha no E-mail do vendedor (wmrodrigues@softys.com)"
+  },
+  {
+    "fornecedor": "META DISTRIBUIDORA ",
+    "procedimento": "TROCA NO ATO DA ENTREGA , RECEBE NO CD"
+  },
+  {
+    "fornecedor": "MIMO ",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "MISTURA LACTEA COND CREMOR",
+    "procedimento": "NÃO TEM TROCA"
+  },
+  {
+    "fornecedor": "MOINHO GLOBO",
+    "procedimento": "TROCAS COM ORDEM DE RETIRADA (PASSAR RELAÇÃO PARA COMPRADOR)"
+  },
+  {
+    "fornecedor": "MOLIN",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "MONDIAL",
+    "procedimento": "ENVIA PARA A LOJA 5"
+  },
+  {
+    "fornecedor": "MOP LAR",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "MOR METALURGICA",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "MR.MEEX(TOALHAS)",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "MULTIFLON",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "NADIR ",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "NATIVE",
+    "procedimento": "BONIFICAÇÃO (DESCARTE)"
+  },
+  {
+    "fornecedor": "NESTLE PURINA",
+    "procedimento": "COMPRADOR ENVIA RELAÇÃO , FORNECEDOR AUTORIZA A EMISSÃO DA NOTA, SOMENTE APÓS NOTAS ASSINADAS DESCARTA O PRODUTO"
+  },
+  {
+    "fornecedor": "NEUGBAUER",
+    "procedimento": "MANDAR RELAÇÃO AO VENDEDOR"
+  },
+  {
+    "fornecedor": "NHA BENTA",
+    "procedimento": "MANDAR PARA LOJA 05"
+  },
+  {
+    "fornecedor": "NORSAL(SAL LEBRE)",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "NUTRIMINAS",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "ONTARGET PEDIGREE",
+    "procedimento": "FORNECEDOR PAGA EM BONIFICAÇÃO - DESCARTE OU USO INTERNO"
+  },
+  {
+    "fornecedor": "ORIGINAL LINE",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "ORQUIDEA",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "OU (MARTIPLAST)",
+    "procedimento": "ENVIAR RELAÇÃO PARA A VENDEDORA CALIANE EMAIL: caliane.bertao@ou.com.br TEL : 98031-0304"
+  },
+  {
+    "fornecedor": "OUROLUX",
+    "procedimento": "PASSAR RELAÇÃO A VENDEDORA Solange (solamari.rep@gmail.com) Tel: 11 98476-7417"
+  },
+  {
+    "fornecedor": "OXFORD",
+    "procedimento": "ALTERAÇÃO NO CONTRATO DESCARTE"
+  },
+  {
+    "fornecedor": "PANELUX",
+    "procedimento": "ENVIAR RELAÇÃO PARA OS EMAILS : (cleiton.lara@alcast.com.br / suport.vendas@terra.com.br) ALEXANDRE  -  99599-4220"
+  },
+  {
+    "fornecedor": "PANETONES (BAUDUCO, VISCONTI,TOMMY) ",
+    "procedimento": "PAGA O VALOR EM JANEIRO, O QUE DER AVARIA, MAS ESTIVER BOM PARA CONSUMO USAR NO REFEITORIO"
+  },
+  {
+    "fornecedor": "PECCIN",
+    "procedimento": "ACORDO COMERCIAL (DESCARTE)"
+  },
+  {
+    "fornecedor": "PETTER PAN",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "PLASULTIL",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "PLASUTIL",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "PLEION",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "PONZAN",
+    "procedimento": "ACORDO COMERCIAL (DESCARTE)"
+  },
+  {
+    "fornecedor": "PREDILECTA",
+    "procedimento": "LANÇAR E DESCARTAR"
+  },
+  {
+    "fornecedor": "PRO CAO",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "PRODASA",
+    "procedimento": "DESCONTO NO BOLETO (DESCARTE)"
+  },
+  {
+    "fornecedor": "RAÇÕES REIS (BAW WAW)",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "RANCHEIRO",
+    "procedimento": "MANDAR PARA LOJA 05"
+  },
+  {
+    "fornecedor": "RAYOVAC",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "RESERVA DE MINAS",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "RIO ALIMENTOS",
+    "procedimento": "NÃO TEM TROCA (DESCARTE)"
+  },
+  {
+    "fornecedor": "RIO VERMELHO",
+    "procedimento": "NÃO TEM TROCA (INFORMAR O COMPRADOR DA CATEGORIA)"
+  },
+  {
+    "fornecedor": "ROGE PG ",
+    "procedimento": "ENVIAR RELAÇÃO PARA A VENDEDORA FERNANDA 97042-8879 (PAGAMENTO VIA ACORDO COMERCIAL)"
+  },
+  {
+    "fornecedor": "SANDYLA ",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "SANREMO",
+    "procedimento": "VENDEDORA PASSA NAS LOJAS AUTORIZA A DESCARTAR , FAZ E ASSINA A NFE DE DEVOLUÇÃO  Sueli - 98817-9019"
+  },
+  {
+    "fornecedor": "SANTA MARIA",
+    "procedimento": "ATO DA ENTREGA, SENDO NO MINIMO 50,00"
+  },
+  {
+    "fornecedor": "SÃO LOURENÇO",
+    "procedimento": "NÃO TEM TROCA "
+  },
+  {
+    "fornecedor": "SICÃO",
+    "procedimento": "NÃO TEM TROCA"
+  },
+  {
+    "fornecedor": "SOLITO (RAÇÃO)",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "SUEB",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "SUN GUIDER",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "TIGRINHO",
+    "procedimento": "ELAS POR ELAS"
+  },
+  {
+    "fornecedor": "TING",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "TONDO ORQUIDEA ",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "TOQUE DE SEDA",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "TORESMO PUBLIC",
+    "procedimento": "PAGO COM BONIFICAÇÃO (DESCARTE)"
+  },
+  {
+    "fornecedor": "TOTAL CENTRO(SANOL)",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "TOZZI ",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "TRAMONTINA",
+    "procedimento": "FORNECEDOR PAGA EM VERDA, VENDEDOR PASSAR NAS LOJAS PARA RETIRAR AS TROCAS"
+  },
+  {
+    "fornecedor": "TRISANTI",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "UNITERMI",
+    "procedimento": "ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "USIBRAS",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "UZ UTILIDADES",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "VELAS AIB",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "VIDAROMAS",
+    "procedimento": "PASSAR RELAÇÃO AO VENDEDOR, TROCA POR PRODUTO Décio (dclimma@yahoo.com.br) Tel: 11 95610-9426"
+  },
+  {
+    "fornecedor": "VIEIRA",
+    "procedimento": "NÃO TEM TROCA (DESCARTE)"
+  },
+  {
+    "fornecedor": "VOG",
+    "procedimento": "LANÇAR E DESCARTAR"
+  },
+  {
+    "fornecedor": "WOFGEL",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "WYDA",
+    "procedimento": "FORNECEDOR PAGA EM BONIFICAÇÃO - DESCARTE OU USO INTERNO"
+  },
+  {
+    "fornecedor": "XANDO",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "YOKI",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "YUMMY",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "EBD HEMMER",
+    "procedimento": "LANÇAR E DESCARTAR"
+  },
+  {
+    "fornecedor": "PORCINO",
+    "procedimento": "AGUARDAR ORIENTAÇÃO DO COMPRADOR"
+  },
+  {
+    "fornecedor": "OVOS DE PASCOA",
+    "procedimento": "NÃO HAVERA TROCA, NÃO DESCARTAR! DUVIDAS PROCURAR O COMPRADOR BRUNO"
+  },
+  {
+    "fornecedor": "MULTI BEV",
+    "procedimento": "NÃO TEM TROCA"
+  },
+  {
+    "fornecedor": "CARVÃO PUBLIC ",
+    "procedimento": "lança nas trocas e guarda, depois manda para o vendedor , emite nota fiscal de devolução e somente depois que ele autorizar descarta.(TEL 98400-7050)"
+  },
+  {
+    "fornecedor": "FARINHA PUBLIC",
+    "procedimento": "TROCA  FEITA NA 05 (PRIORIZAR USO INTERNO)"
+  },
+  {
+    "fornecedor": "SACO DE LIXO PUBLIC",
+    "procedimento": "VERIFICAR SE DA PRA USAR NA LOJA COMO CONSUMO"
+  },
+  {
+    "fornecedor": "COCO DO VALE ",
+    "procedimento": "NÃO TEM TROCA"
+  },
+  {
+    "fornecedor": "TINGECOR",
+    "procedimento": "NÃO TEM TROCA"
+  },
+  {
+    "fornecedor": "SUCO NATURAL ONE",
+    "procedimento": "NÃO TEM TROCA"
+  },
+  {
+    "fornecedor": "SAL VILA CERRONI",
+    "procedimento": "NÃO TEM TROCA"
+  },
+  {
+    "fornecedor": "BOLO PUBLIC",
+    "procedimento": "AGURDAR ORIENTAÇÃO DO COMPRADOR"
+  },
+  {
+    "fornecedor": "GEFLEX",
+    "procedimento": "PAGO COM BONIFICAÇÃO (DESCARTE)"
+  },
+  {
+    "fornecedor": "COCAMAR",
+    "procedimento": "NÃO TEM TROCA"
+  },
+  {
+    "fornecedor": "Forusi",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "SORTIS",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "LA VIOLETERA",
+    "procedimento": "PASSAR A RELAÇÃO PARA O VENDEDOR, TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "ALIM SOFT",
+    "procedimento": "ALTERAÇÃO NO CONTRATO DESCARTE"
+  },
+  {
+    "fornecedor": "COMERCIO DE DECORAÇÃO",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "FORUSI",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "INGA",
+    "procedimento": "ALTERAÇÃO NO CONTRATO DESCARTE"
+  },
+  {
+    "fornecedor": "MB NACIONAL",
+    "procedimento": "ALTERAÇÃO NO CONTRATO DESCARTE"
+  },
+  {
+    "fornecedor": "BRINOX",
+    "procedimento": "ALTERAÇÃO NO CONTRATO DESCARTE"
+  },
+  {
+    "fornecedor": "TRADING CARE INDUS",
+    "procedimento": "ALTERAÇÃO NO CONTRATO DESCARTE"
+  },
+  {
+    "fornecedor": "MELLO IMPORTAÇÃO",
+    "procedimento": "ALTERAÇÃO NO CONTRATO DESCARTE"
+  },
+  {
+    "fornecedor": "VALE DA CANASTRA",
+    "procedimento": "BRUNO ESTA NEGOCIANDO"
+  },
+  {
+    "fornecedor": "OXFORD PORCELANAS",
+    "procedimento": "ALTERAÇÃO NO CONTRATO DESCARTE"
+  },
+  {
+    "fornecedor": "SUCO GARIBALDI",
+    "procedimento": "DESCARTE"
+  },
+  {
+    "fornecedor": "AD ANDES ASTECA",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "NESTLE ",
+    "procedimento": "PROMOTOR VAI PASSAR NAS TROCAS AVALIAR O QUE VEIO DA NESTLE E LACRAR"
+  },
+  {
+    "fornecedor": "OVOS AJA ",
+    "procedimento": "GUARDAR AS ETIQUETAS, TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "MARTIPLAST",
+    "procedimento": "ALTERAÇÃO NO CONTRATO DESCARTE"
+  },
+  {
+    "fornecedor": "M DIAS ",
+    "procedimento": "LANÇAR E DESCARTAR"
+  },
+  {
+    "fornecedor": "SUCO AURORA ",
+    "procedimento": "NÃO TEM TROCA"
+  },
+  {
+    "fornecedor": "NESTLE MERCEARIA",
+    "procedimento": "VERIFICAR SE VEIO DE FATO DA NESTLE E ALINHAR COM O PROMOTOR A RETIRADA"
+  },
+  {
+    "fornecedor": "DOLCE HOME",
+    "procedimento": "TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "TERRAVITA",
+    "procedimento": "NÃO TEM TROCA"
+  },
+  {
+    "fornecedor": "OVOS NAKAURA",
+    "procedimento": "GUARDAR AS ETIQUETAS, TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "OVOS IANA",
+    "procedimento": "GUARDAR AS ETIQUETAS, TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "OVOS SANTA MARTA",
+    "procedimento": "GUARDAR AS ETIQUETAS, TROCA NO ATO DA ENTREGA"
+  },
+  {
+    "fornecedor": "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ",
+    "procedimento": NaN
+  }
+]
