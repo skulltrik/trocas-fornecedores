@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de Trocas Grupo Bem Barato">
+    <title>Sistema de Trocas - Grupo Bem Barato</title>
+    
+    <!-- Favicon e Manifest -->
+    <link rel="icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- CSS e Fontes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --color-leva-no-ato: #10B981;
+            --color-armazenar: #F59E0B;
+            --color-descarte: #6B7280;
+            --color-nao-aceita: #EF4444;
+            --color-verificar: #8B5CF6;
+            --color-primary: #2563EB;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar.open {
+            transform: translateX(0);
+        }
+        
+        .sidebar-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .sidebar-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .badge-leva-no-ato { background-color: #ECFDF5; color: var(--color-leva-no-ato); border-color: var(--color-leva-no-ato); }
+        .badge-armazenar { background-color: #FEF3C7; color: var(--color-armazenar); border-color: var(--color-armazenar); }
+        .badge-descarte { background-color: #F3F4F6; color: var(--color-descarte); border-color: var(--color-descarte); }
+        .badge-nao-aceita { background-color: #FEE2E2; color: var(--color-nao-aceita); border-color: var(--color-nao-aceita); }
+        .badge-verificar { background-color: #F3E8FF; color: var(--color-verificar); border-color: var(--color-verificar); }
+        
+        .border-leva-no-ato { border-left-color: var(--color-leva-no-ato); }
+        .border-armazenar { border-left-color: var(--color-armazenar); }
+        .border-descarte { border-left-color: var(--color-descarte); }
+        .border-nao-aceita { border-left-color: var(--color-nao-aceita); }
+        .border-verificar { border-left-color: var(--color-verificar); }
+        
+        .card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(8px);
+            background-color: rgba(248, 250, 252, 0.8);
+        }
+        
+        .admin-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .admin-panel.open {
+            max-height: 2000px;
+        }
+        
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        
+        /* Login modal */
+        .login-modal {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .login-modal.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Estilo para o item de admin no menu */
+        #adminMenuItem {
+            margin-top: auto;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 0.5rem;
+        }
+
+        #openAdminPanelSidebar {
+            background-color: #f3f4f6;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-800">
+    <!-- Sidebar Overlay -->
+    <div id="sidebarOverlay" class="sidebar-overlay fixed inset-0 bg-black bg-opacity-50 z-30"></div>
+    
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar fixed inset-y-0 left-0 z-40 w-64 bg-white shadow-lg flex flex-col">
+        <div class="p-4 border-b border-gray-200">
+            <img src="Grupo Bem Barato Logo.png" alt="Grupo Bem Barato" class="h-12 mx-auto">
+        </div>
+        <nav class="p-4 flex-1">
+            <ul class="space-y-2">
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-home mr-3"></i> Início
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-exchange-alt mr-3"></i> Trocas
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-chart-bar mr-3"></i> Relatórios
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-cog mr-3"></i> Configurações
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-question-circle mr-3"></i> Ajuda
+                    </a>
+                </li>
+                <li id="adminMenuItem" class="hidden">
+                    <a href="#" id="openAdminPanelSidebar" class="flex items-center p-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-user-shield mr-3"></i> Painel Admin
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Login Modal -->
+    <div id="loginModal" class="login-modal fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+            <div class="text-center mb-6">
+                <img src="Grupo Bem Barato Logo.png" alt="Grupo Bem Barato" class="h-16 mx-auto mb-4">
+                <h2 class="text-2xl font-bold text-gray-800">Acesso Administrativo</h2>
+            </div>
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Senha</label>
+                    <input type="password" id="password" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Digite a senha">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition">
+                    <i class="fas fa-unlock-alt mr-2"></i> Acessar
+                </button>
+                <button type="button" id="cancelLogin" class="w-full bg-gray-500 text-white py-3 px-4 rounded-lg hover:bg-gray-600 transition mt-2">
+                    <i class="fas fa-times mr-2"></i> Cancelar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <button id="menuToggle" class="p-2 text-gray-500 hover:text-gray-700 transition md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <div>
+                    <div class="flex items-center justify-center">
+                        <img src="Grupo Bem Barato Logo.png" alt="Grupo Bem Barato" class="h-10 mr-3 hidden md:block">
+                        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Sistema de Trocas</h1>
+                    </div>
+                    <p class="mt-2 text-md text-gray-600">Grupo Bem Barato</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button id="printBtn" class="p-2 text-gray-500 hover:text-gray-700 transition">
+                        <i class="fas fa-print text-xl"></i>
+                    </button>
+                    <button id="darkModeToggle" class="p-2 text-gray-500 hover:text-gray-700 transition">
+                        <i class="fas fa-moon text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search and Filter Controls -->
+        <div class="sticky-header py-4 mb-6 border-b border-gray-200">
+            <div class="max-w-6xl mx-auto">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="Pesquisar fornecedor..." 
+                           class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-search text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <div id="filter-container" class="flex flex-wrap gap-2 sm:gap-3 mt-4 justify-center">
+                    <button data-filter="Todos" class="filter-btn active flex items-center px-4 py-2 rounded-lg shadow-md bg-blue-600 text-white font-medium hover:bg-blue-700 transition-all duration-200">
+                        <i class="fas fa-layer-group mr-2"></i> Todos
+                    </button>
+                    <button data-filter="Leva no Ato" class="filter-btn flex items-center px-4 py-2 rounded-lg shadow-md bg-green-500 text-white font-medium hover:bg-green-600 transition-all duration-200">
+                        <i class="fas fa-exchange-alt mr-2"></i> Leva no Ato
+                    </button>
+                    <button data-filter="Armazenar" class="filter-btn flex items-center px-4 py-2 rounded-lg shadow-md bg-yellow-500 text-white font-medium hover:bg-yellow-600 transition-all duration-200">
+                        <i class="fas fa-box-archive mr-2"></i> Armazenar
+                    </button>
+                    <button data-filter="Descarte" class="filter-btn flex items-center px-4 py-2 rounded-lg shadow-md bg-gray-600 text-white font-medium hover:bg-gray-700 transition-all duration-200">
+                        <i class="fas fa-trash-alt mr-2"></i> Descarte
+                    </button>
+                    <button data-filter="Não Aceita" class="filter-btn flex items-center px-4 py-2 rounded-lg shadow-md bg-red-500 text-white font-medium hover:bg-red-600 transition-all duration-200">
+                        <i class="fas fa-ban mr-2"></i> Não Aceita
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div id="statsBar" class="mb-6 hidden sm:block">
+            <div class="bg-white rounded-lg shadow p-4">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                    <div class="stats-item" data-category="Todos">
+                        <div class="text-2xl font-bold text-gray-800">0</div>
+                        <div class="text-sm text-gray-500">Total</div>
+                    </div>
+                    <div class="stats-item" data-category="Leva no Ato">
+                        <div class="text-2xl font-bold text-green-600">0</div>
+                        <div class="text-sm text-gray-500">Leva no Ato</div>
+                    </div>
+                    <div class="stats-item" data-category="Armazenar">
+                        <div class="text-2xl font-bold text-yellow-600">0</div>
+                        <div class="text-sm text-gray-500">Armazenar</div>
+                    </div>
+                    <div class="stats-item" data-category="Descarte">
+                        <div class="text-2xl font-bold text-gray-600">0</div>
+                        <div class="text-sm text-gray-500">Descarte</div>
+                    </div>
+                    <div class="stats-item" data-category="Não Aceita">
+                        <div class="text-2xl font-bold text-red-600">0</div>
+                        <div class="text-sm text-gray-500">Não Aceita</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Supplier List -->
+        <main id="supplierList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <!-- Supplier cards will be injected here by JavaScript -->
+        </main>
+        
+        <div id="noResults" class="text-center py-16 text-gray-500 hidden">
+            <div class="mx-auto max-w-md">
+                <svg class="mx-auto h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h3 class="mt-4 text-lg font-medium text-gray-900">Nenhum fornecedor encontrado</h3>
+                <p class="mt-2 text-gray-600">Tente ajustar sua busca ou filtro.</p>
+                <button id="resetFilters" class="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    <i class="fas fa-redo mr-2"></i> Limpar filtros
+                </button>
+            </div>
+        </div>
+
+        <!-- Admin Panel -->
+        <div id="adminPanel" class="admin-panel mt-12 bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="p-6 border-b border-gray-200">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-bold text-gray-900">
+                        <i class="fas fa-user-shield mr-2"></i> Painel de Administração
+                    </h2>
+                    <button id="toggleAdminPanel" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-6">
+                <div class="mb-6">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <button id="exportJson" class="flex items-center bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                            <i class="fas fa-file-export mr-2"></i> Exportar para JSON
+                        </button>
+                        <button id="importJson" class="flex items-center bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">
+                            <i class="fas fa-file-import mr-2"></i> Importar JSON
+                        </button>
+                        <input type="file" id="jsonFileInput" class="hidden" accept=".json">
+                        <button id="addSupplierBtn" class="flex items-center bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition">
+                            <i class="fas fa-plus-circle mr-2"></i> Adicionar Fornecedor
+                        </button>
+                        <button id="toggleHelp" class="flex items-center bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition">
+                            <i class="fas fa-question-circle mr-2"></i> Ajuda
+                        </button>
+                    </div>
+                    
+                    <!-- Formulário de ajuda -->
+                    <div id="helpSection" class="bg-blue-50 p-4 rounded-lg mb-4 hidden">
+                        <h3 class="font-bold mb-2 text-blue-800">
+                            <i class="fas fa-info-circle mr-2"></i> Como usar o painel admin:
+                        </h3>
+                        <ul class="list-disc pl-5 space-y-1 text-blue-700">
+                            <li><strong>Exportar JSON:</strong> Baixa um arquivo com todos os fornecedores</li>
+                            <li><strong>Importar JSON:</strong> Carrega dados de um arquivo JSON</li>
+                            <li><strong>Adicionar Fornecedor:</strong> Abre formulário para cadastro</li>
+                            <li><strong>Editar/Excluir:</strong> Use os botões na tabela abaixo</li>
+                        </ul>
+                        <p class="mt-2 text-sm text-blue-600">Formato do JSON esperado: array de objetos com "fornecedor" e "procedimento"</p>
+                    </div>
+                    
+                    <!-- Formulário para adicionar fornecedor -->
+                    <div id="addSupplierForm" class="bg-gray-50 p-4 rounded-lg mb-4 hidden">
+                        <h3 class="font-bold mb-3 text-gray-800">
+                            <i class="fas fa-user-plus mr-2"></i> Adicionar Novo Fornecedor
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">
+                                    <i class="fas fa-signature mr-1"></i> Fornecedor*
+                                </label>
+                                <input type="text" id="newSupplierName" class="w-full p-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">
+                                    <i class="fas fa-clipboard-list mr-1"></i> Procedimento*
+                                </label>
+                                <input type="text" id="newSupplierProcedure" class="w-full p-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                        </div>
+                        <div class="flex justify-end gap-2">
+                            <button id="cancelAddSupplier" class="flex items-center bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition">
+                                <i class="fas fa-times mr-2"></i> Cancelar
+                            </button>
+                            <button id="saveSupplier" class="flex items-center bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                                <i class="fas fa-save mr-2"></i> Salvar Fornecedor
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tabela de fornecedores -->
+                <div class="overflow-x-auto rounded-lg border border-gray-200">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <i class="fas fa-store mr-1"></i> Fornecedor
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <i class="fas fa-tasks mr-1"></i> Procedimento
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <i class="fas fa-tag mr-1"></i> Categoria
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <i class="fas fa-cog mr-1"></i> Ações
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminSupplierList" class="bg-white divide-y divide-gray-200">
+                            <!-- Dados serão inseridos aqui pelo JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12 py-6">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm text-gray-500 mb-4 md:mb-0">
+                    © <span id="currentYear"></span> Grupo Bem Barato - Sistema de Trocas
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-gray-700 transition">
+                        <i class="fas fa-question-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 hidden">
+        <div class="bg-gray-800 text-white px-4 py-3 rounded-lg shadow-lg flex items-start max-w-xs">
+            <div id="toastIcon" class="mr-3 mt-1"></div>
+            <div>
+                <div id="toastTitle" class="font-bold"></div>
+                <div id="toastMessage" class="text-sm"></div>
+            </div>
+            <button id="toastClose" class="ml-4 text-gray-300 hover:text-white">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- manifest.json -->
+    <script type="application/json" id="manifestJson">
+        {
+            "name": "Sistema de Trocas Grupo Bem Barato",
+            "short_name": "Trocas B.B.",
+            "description": "Sistema de gerenciamento de trocas de fornecedores do Grupo Bem Barato",
+            "start_url": "/",
+            "display": "standalone",
+            "background_color": "#ffffff",
+            "theme_color": "#2563EB",
+            "icons": [
+                {
+                    "src": "Grupo Bem Barato Logo.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                },
+                {
+                    "src": "Grupo Bem Barato Logo.png",
+                    "sizes": "512x512",
+                    "type": "image/png"
+                }
+            ]
+        }
+    </script>
+
+    <script>
+        // =============================================
+        // Configurações e dados iniciais
+        // =============================================
+        
+        // Dados padrão (serão substituídos se carregar do JSON)
+        let supplierData = [];
+        const ADMIN_PASSWORD = "895422"; // Senha para acesso admin
+        
+        // Categorias com contadores
+        const categories = {
+            'Todos': { count: 0, color: 'blue' },
+            'Leva no Ato': { count: 0, color: 'green' },
+            'Armazenar': { count: 0, color: 'yellow' },
+            'Descarte': { count: 0, color: 'gray' },
+            'Não Aceita': { count: 0, color: 'red' },
+            'Verificar': { count: 0, color: 'purple' }
+        };
+
+        // =============================================
+        // Funções auxiliares
+        // =============================================
+
+        // Categoriza os fornecedores e atualiza contadores
+        function getCategory(procedimento) {
+            const procLower = procedimento.toLowerCase();
+            
+            if (procLower.includes('ato da entrega') || procLower.includes('toca no ato')) {
+                return { name: 'Leva no Ato', color: 'leva-no-ato' };
+            }
+            if (procLower.includes('descartar') || procLower.includes('descarte')) {
+                return { name: 'Descarte', color: 'descarte' };
+            }
+            if (procLower.includes('relação para vendedor') || procLower.includes('enviar relação')) {
+                return { name: 'Armazenar', color: 'armazenar' };
+            }
+            if (procLower.includes('não tem troca') || procLower.includes('nao tem troca')) {
+                return { name: 'Não Aceita', color: 'nao-aceita' };
+            }
+            return { name: 'Verificar', color: 'verificar' };
+        }
+
+        // Normaliza texto para busca (remove acentos e coloca em minúsculas)
+        function normalizeText(text) {
+            return text.toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[^a-z0-9\s]/g, "");
+        }
+
+        // Mostra notificação toast
+        function showToast(title, message, type = 'info') {
+            const toast = document.getElementById('toast');
+            const toastIcon = document.getElementById('toastIcon');
+            const toastTitle = document.getElementById('toastTitle');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            // Configura ícone e cores baseado no tipo
+            let iconClass;
+            switch(type) {
+                case 'success':
+                    iconClass = 'fas fa-check-circle text-green-500';
+                    break;
+                case 'error':
+                    iconClass = 'fas fa-exclamation-circle text-red-500';
+                    break;
+                case 'warning':
+                    iconClass = 'fas fa-exclamation-triangle text-yellow-500';
+                    break;
+                default:
+                    iconClass = 'fas fa-info-circle text-blue-500';
+            }
+            
+            toastIcon.className = iconClass;
+            toastTitle.textContent = title;
+            toastMessage.textContent = message;
+            
+            toast.classList.remove('hidden');
+            toast.classList.add('animate__animated', 'animate__fadeInUp');
+            
+            // Esconde após 5 segundos
+            setTimeout(() => {
+                toast.classList.remove('animate__fadeInUp');
+                toast.classList.add('animate__fadeOutDown');
+                setTimeout(() => toast.classList.add('hidden'), 500);
+            }, 5000);
+        }
+
+        // Atualiza estatísticas na barra de status
+        function updateStats() {
+            Object.keys(categories).forEach(cat => {
+                const element = document.querySelector(`.stats-item[data-category="${cat}"] div:first-child`);
+                if (element) {
+                    element.textContent = categories[cat].count;
+                }
+            });
+        }
+
+        // Alternar modo escuro
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+            document.getElementById('darkModeToggle').innerHTML = document.documentElement.classList.contains('dark') ? 
+                '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+
+        // Alternar sidebar no mobile
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('sidebarOverlay').classList.toggle('open');
+        }
+
+        // Verificar senha admin
+        function checkAdminPassword(password) {
+            return password === ADMIN_PASSWORD;
+        }
+
+        // Criar manifest.json dinamicamente
+        function createManifest() {
+            const manifestContent = document.getElementById('manifestJson').textContent;
+            const blob = new Blob([manifestContent], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            
+            const link = document.createElement('link');
+            link.rel = 'manifest';
+            link.href = url;
+            document.head.appendChild(link);
+        }
+
+        // Configura eventos para os itens do menu
+        function setupMenuItems() {
+            document.querySelectorAll('#sidebar nav a').forEach(item => {
+                item.addEventListener('click', () => {
+                    if (window.innerWidth < 768) {
+                        toggleSidebar();
+                    }
+                });
+            });
+        }
+
+        // =============================================
+        // Funções principais
+        // =============================================
+
+        // Renderiza a lista principal de fornecedores
+        function renderSupplierList(filter = 'Todos', searchTerm = '') {
+            const supplierList = document.getElementById('supplierList');
+            const noResults = document.getElementById('noResults');
+            
+            supplierList.innerHTML = '';
+            const normalizedSearch = normalizeText(searchTerm);
+            
+            // Resetar contadores
+            Object.keys(categories).forEach(cat => {
+                categories[cat].count = 0;
+            });
+            
+            // Filtra os dados
+            let filteredData = supplierData.filter(item => {
+                return normalizeText(item.fornecedor).includes(normalizedSearch);
+            });
+
+            // Contar categorias
+            supplierData.forEach(item => {
+                const category = getCategory(item.procedimento).name;
+                categories[category].count++;
+                categories['Todos'].count++;
+            });
+
+            // Aplica filtro adicional se não for "Todos"
+            if (filter !== 'Todos') {
+                filteredData = filteredData.filter(item => {
+                    return getCategory(item.procedimento).name === filter;
+                });
+            }
+
+            // Atualiza estatísticas
+            updateStats();
+
+            // Mostra mensagem se não houver resultados
+            if (filteredData.length === 0) {
+                noResults.classList.remove('hidden');
+                supplierList.classList.add('hidden');
+            } else {
+                noResults.classList.add('hidden');
+                supplierList.classList.remove('hidden');
+            }
+
+            // Ordena alfabeticamente
+            filteredData.sort((a, b) => a.fornecedor.localeCompare(b.fornecedor));
+
+            // Renderiza cada card
+            filteredData.forEach(item => {
+                const category = getCategory(item.procedimento);
+                const card = document.createElement('div');
+                card.className = `bg-white rounded-lg shadow-md overflow-hidden border-l-4 border-${category.color} transition-all duration-300 card-hover fade-in`;
+                card.innerHTML = `
+                    <div class="p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <h2 class="text-xl font-bold text-gray-800 truncate" title="${item.fornecedor}">${item.fornecedor}</h2>
+                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full badge-${category.color} border">
+                                ${category.name}
+                            </span>
+                        </div>
+                        <p class="text-gray-600 text-sm">${item.procedimento}</p>
+                        ${item.procedimento.includes('@') ? `<div class="mt-2 text-blue-600 text-sm truncate"><i class="fas fa-envelope mr-1"></i> ${item.procedimento.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi)?.[0] || ''}</div>` : ''}
+                        ${item.procedimento.match(/\d{4,5}-?\d{4}/) ? `<div class="mt-1 text-green-600 text-sm"><i class="fas fa-phone-alt mr-1"></i> ${item.procedimento.match(/\d{4,5}-?\d{4}/)[0]}</div>` : ''}
+                    </div>
+                `;
+                supplierList.appendChild(card);
+            });
+        }
+
+        // Renderiza a tabela administrativa
+        function renderAdminTable() {
+            const adminSupplierList = document.getElementById('adminSupplierList');
+            adminSupplierList.innerHTML = '';
+            
+            supplierData.forEach((item, index) => {
+                const category = getCategory(item.procedimento);
+                const row = document.createElement('tr');
+                row.className = index % 2 === 0 ? 'bg-white' : 'bg-gray-50';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${item.fornecedor}</td>
+                    <td class="px-6 py-4 whitespace-normal text-sm text-gray-500 max-w-xs">${item.procedimento}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full badge-${category.color} border">
+                            ${category.name}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button data-index="${index}" class="edit-supplier text-blue-600 hover:text-blue-900 mr-3"><i class="fas fa-edit mr-1"></i> Editar</button>
+                        <button data-index="${index}" class="delete-supplier text-red-600 hover:text-red-900"><i class="fas fa-trash-alt mr-1"></i> Excluir</button>
+                    </td>
+                `;
+                adminSupplierList.appendChild(row);
+            });
+
+            // Adiciona eventos aos botões de editar/excluir
+            document.querySelectorAll('.edit-supplier').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.dataset.index || e.target.parentElement.dataset.index);
+                    editSupplier(index);
+                });
+            });
+
+            document.querySelectorAll('.delete-supplier').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.dataset.index || e.target.parentElement.dataset.index);
+                    deleteSupplier(index);
+                });
+            });
+        }
+
+        // Edita um fornecedor
+        function editSupplier(index) {
+            const supplier = supplierData[index];
+            const row = adminSupplierList.children[index];
+            
+            // Cria formulário de edição
+            const editForm = document.createElement('tr');
+            editForm.className = 'bg-yellow-50';
+            editForm.innerHTML = `
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="text" value="${supplier.fornecedor}" 
+                           class="w-full p-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500">
+                </td>
+                <td class="px-6 py-4 whitespace-normal">
+                    <textarea class="w-full p-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500" rows="2">${supplier.procedimento}</textarea>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full badge-${getCategory(supplier.procedimento).color} border">
+                        ${getCategory(supplier.procedimento).name}
+                    </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button data-index="${index}" class="save-edit text-green-600 hover:text-green-900 mr-3"><i class="fas fa-save mr-1"></i> Salvar</button>
+                    <button data-index="${index}" class="cancel-edit text-gray-600 hover:text-gray-900"><i class="fas fa-times mr-1"></i> Cancelar</button>
+                </td>
+            `;
+            
+            // Substitui a linha pelo formulário
+            row.replaceWith(editForm);
+            
+            // Adiciona eventos aos botões
+            document.querySelector(`.save-edit[data-index="${index}"]`).addEventListener('click', () => saveEdit(index));
+            document.querySelector(`.cancel-edit[data-index="${index}"]`).addEventListener('click', renderAdminTable);
+        }
+
+        // Salva a edição de um fornecedor
+        function saveEdit(index) {
+            const inputs = document.querySelectorAll(`tr.bg-yellow-50 input, tr.bg-yellow-50 textarea`);
+            
+            supplierData[index] = {
+                fornecedor: inputs[0].value.trim(),
+                procedimento: inputs[1].value.trim()
+            };
+            
+            // Reordena e renderiza
+            supplierData.sort((a, b) => a.fornecedor.localeCompare(b.fornecedor));
+            renderSupplierList(currentFilter, searchInput.value);
+            renderAdminTable();
+            
+            // Mostra feedback
+            showToast('Sucesso', 'Fornecedor atualizado com sucesso!', 'success');
+        }
+
+        // Exclui um fornecedor
+        function deleteSupplier(index) {
+            if (confirm(`Tem certeza que deseja excluir o fornecedor "${supplierData[index].fornecedor}"?`)) {
+                const deletedSupplier = supplierData.splice(index, 1)[0];
+                renderSupplierList(currentFilter, searchInput.value);
+                renderAdminTable();
+                showToast('Sucesso', `Fornecedor "${deletedSupplier.fornecedor}" excluído!`, 'success');
+            }
+        }
+
+        // Exporta dados para JSON
+        function exportToJson() {
+            const dataStr = JSON.stringify(supplierData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = 'fornecedores-trocas-' + new Date().toISOString().slice(0,10) + '.json';
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            showToast('Exportado', 'Dados exportados com sucesso!', 'success');
+        }
+
+        // Importa dados de JSON
+        function importFromJson(file) {
+            const reader = new FileReader();
+            
+            reader.onload = (e) => {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    
+                    if (Array.isArray(data)) {
+                        supplierData = data;
+                        renderSupplierList(currentFilter, searchInput.value);
+                        if (isAdmin) renderAdminTable();
+                        showToast('Importado', 'Dados importados com sucesso!', 'success');
+                    } else {
+                        showToast('Erro', 'O arquivo deve conter um array de fornecedores.', 'error');
+                    }
+                } catch (error) {
+                    showToast('Erro', 'Formato de arquivo inválido: ' + error.message, 'error');
+                }
+            };
+            
+            reader.onerror = () => {
+                showToast('Erro', 'Falha ao ler o arquivo.', 'error');
+            };
+            
+            reader.readAsText(file);
+        }
+
+        // =============================================
+        // Inicialização e Event Listeners
+        // =============================================
+
+        // Elementos DOM
+        const searchInput = document.getElementById('searchInput');
+        const filterContainer = document.getElementById('filter-container');
+        const adminPanel = document.getElementById('adminPanel');
+        const resetFiltersBtn = document.getElementById('resetFilters');
+        const printBtn = document.getElementById('printBtn');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const menuToggle = document.getElementById('menuToggle');
+        let currentFilter = 'Todos';
+
+        // Verifica se está no modo admin
+        const urlParams = new URLSearchParams(window.location.search);
+        let isAdmin = urlParams.has('admin');
+
+        // Configura o ano atual no footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Configura o modo escuro se estiver ativado
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        // Cria o manifest.json
+        createManifest();
+
+        // Configura a interface baseado no modo
+        if (isAdmin) {
+            adminPanel.classList.add('open');
+            document.getElementById('adminMenuItem').classList.add('hidden');
+            document.title = "Admin - Sistema de Trocas Grupo Bem Barato";
+        } else {
+            document.getElementById('adminMenuItem').classList.remove('hidden');
+        }
+
+        // Evento de busca
+        searchInput.addEventListener('input', (e) => {
+            renderSupplierList(currentFilter, e.target.value);
+        });
+
+        // Evento de filtro
+        filterContainer.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON' || e.target.parentElement.tagName === 'BUTTON') {
+                const button = e.target.tagName === 'BUTTON' ? e.target : e.target.parentElement;
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+                
+                currentFilter = button.dataset.filter;
+                renderSupplierList(currentFilter, searchInput.value);
+            }
+        });
+
+        // Resetar filtros
+        resetFiltersBtn?.addEventListener('click', () => {
+            searchInput.value = '';
+            document.querySelector('.filter-btn[data-filter="Todos"]').click();
+            searchInput.focus();
+        });
+
+        // Eventos do painel admin
+        document.getElementById('exportJson')?.addEventListener('click', exportToJson);
+        
+        document.getElementById('importJson')?.addEventListener('click', () => {
+            document.getElementById('jsonFileInput').click();
+        });
+        
+        document.getElementById('jsonFileInput')?.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                importFromJson(e.target.files[0]);
+                e.target.value = ''; // Permite reimportar o mesmo arquivo
+            }
+        });
+        
+        document.getElementById('addSupplierBtn')?.addEventListener('click', () => {
+            document.getElementById('addSupplierForm').classList.toggle('hidden');
+        });
+        
+        document.getElementById('cancelAddSupplier')?.addEventListener('click', () => {
+            document.getElementById('addSupplierForm').classList.add('hidden');
+            document.getElementById('newSupplierName').value = '';
+            document.getElementById('newSupplierProcedure').value = '';
+        });
+        
+        document.getElementById('saveSupplier')?.addEventListener('click', () => {
+            const name = document.getElementById('newSupplierName').value.trim();
+            const procedure = document.getElementById('newSupplierProcedure').value.trim();
+            
+            if (name && procedure) {
+                supplierData.push({ fornecedor: name, procedimento: procedure });
+                supplierData.sort((a, b) => a.fornecedor.localeCompare(b.fornecedor));
+                
+                document.getElementById('addSupplierForm').classList.add('hidden');
+                document.getElementById('newSupplierName').value = '';
+                document.getElementById('newSupplierProcedure').value = '';
+                
+                renderSupplierList(currentFilter, searchInput.value);
+                renderAdminTable();
+                showToast('Sucesso', 'Fornecedor adicionado com sucesso!', 'success');
+            } else {
+                showToast('Atenção', 'Por favor, preencha ambos os campos.', 'warning');
+            }
+        });
+        
+        document.getElementById('toggleHelp')?.addEventListener('click', () => {
+            document.getElementById('helpSection').classList.toggle('hidden');
+        });
+
+        document.getElementById('toggleAdminPanel')?.addEventListener('click', () => {
+            adminPanel.classList.toggle('open');
+            document.getElementById('toggleAdminPanel').innerHTML = 
+                adminPanel.classList.contains('open') ? '<i class="fas fa-chevron-up"></i>' : '<i class="fas fa-chevron-down"></i>';
+        });
+
+        // Botão de impressão
+        printBtn?.addEventListener('click', () => {
+            window.print();
+        });
+
+        // Modo escuro
+        darkModeToggle?.addEventListener('click', () => {
+            toggleDarkMode();
+        });
+
+        // Menu toggle
+        menuToggle?.addEventListener('click', toggleSidebar);
+        document.getElementById('sidebarOverlay')?.addEventListener('click', toggleSidebar);
+
+        // Fechar toast
+        document.getElementById('toastClose')?.addEventListener('click', () => {
+            document.getElementById('toast').classList.add('hidden');
+        });
+
+        // Login admin pelo menu lateral
+        document.getElementById('openAdminPanelSidebar')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('loginModal').classList.add('open');
+        });
+
+        document.getElementById('cancelLogin')?.addEventListener('click', () => {
+            document.getElementById('loginModal').classList.remove('open');
+            document.getElementById('password').value = '';
+        });
+
+        document.getElementById('loginForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+            
+            if (checkAdminPassword(password)) {
+                isAdmin = true;
+                document.getElementById('loginModal').classList.remove('open');
+                document.getElementById('password').value = '';
+                window.history.pushState({}, '', '?admin');
+                adminPanel.classList.add('open');
+                renderAdminTable();
+                document.getElementById('adminMenuItem').classList.add('hidden');
+                document.title = "Admin - Sistema de Trocas Grupo Bem Barato";
+                showToast('Sucesso', 'Acesso administrativo concedido', 'success');
+            } else {
+                showToast('Erro', 'Senha incorreta', 'error');
+            }
+        });
+
+        // =============================================
+        // Carregamento inicial
+        // =============================================
+
+        // Tenta carregar dados de um arquivo JSON externo
+        async function loadExternalData() {
+            try {
+                const response = await fetch('fornecedores.json');
+                
+                if (!response.ok) {
+                    throw new Error('Arquivo não encontrado');
+                }
+                
+                const data = await response.json();
+                
+                if (Array.isArray(data)) {
+                    supplierData = data;
+                    showToast('Carregado', 'Dados dos fornecedores carregados com sucesso', 'success');
+                }
+            } catch (error) {
+                console.log('Erro ao carregar fornecedores.json:', error.message);
+                showToast('Aviso', 'Usando dados padrão. Arquivo fornecedores.json não encontrado.', 'warning');
+                
+                // Carrega dados de exemplo se o arquivo não existir
+                supplierData = [
+                    { "fornecedor": "EXEMPLO 1", "procedimento": "TROCA NO ATO DA ENTREGA" },
+                    { "fornecedor": "EXEMPLO 2", "procedimento": "ENVIAR RELAÇÃO PARA VENDEDOR" },
+                    { "fornecedor": "EXEMPLO 3", "procedimento": "DESCARTE" }
+                ];
+            } finally {
+                renderSupplierList();
+                if (isAdmin) renderAdminTable();
+                setupMenuItems();
+            }
+        }
+
+        // Inicializa o aplicativo
+        window.addEventListener('DOMContentLoaded', loadExternalData);
+    </script>
+</body>
+</html>
