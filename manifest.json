@@ -1,0 +1,21 @@
+{
+    "name": "Sistema de Trocas Grupo Bem Barato",
+    "short_name": "Trocas B.B.",
+    "description": "Sistema de gerenciamento de trocas de fornecedores do Grupo Bem Barato",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2563EB",
+    "icons": [
+        {
+            "src": "Grupo Bem Barato Logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "Grupo Bem Barato Logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
